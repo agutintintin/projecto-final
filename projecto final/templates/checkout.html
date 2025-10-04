@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GCambio - Gracias por tu donación</title>
+<link rel="icon" href="static/img/icono1.png" type="image/png">
+<link rel="stylesheet" href="static/css/style.css">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #d0f4de);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  h1 {
+    color: #0277bd;
+    margin-bottom: 30px;
+  }
+ 
+</style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>¡Gracias por tu donación {{ nombre }}!</h1>
+    <p>Has donado: ${{ cantidad }}</p>
+    <p>{{ mensaje }}</p>
+    <a href="/" class="mi-boton">Volver al inicio</a>
+  </div>
+</body>
+</html>

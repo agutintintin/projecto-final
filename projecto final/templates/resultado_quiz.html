@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GCambio - Resultado</title>
+    <link rel="icon" href="static/img/icono1.png" type="image/png">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<style>
+  /* Contenedor de resultados */
+h1 { text-align: center; color: #0277bd; }
+
+.result-quiz {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #e0f7fa; /* fondo suave */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+}
+
+/* Títulos */
+.result-quiz h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.result-quiz h3 {
+    margin-top: 1.5rem;
+    color: #2c3e50;
+}
+
+/* Barra de porcentaje */
+.barra {
+    width: 100%;
+    background: #c8e6c9; /* verde claro de fondo */
+    border-radius: 20px;
+    height: 30px;
+    margin: 1rem 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.barra-llena {
+    height: 100%;
+    background: #4CAF50; /* verde intenso */
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 30px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Puntaje */
+.puntaje {
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+/* Errores */
+.errores {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.errores li {
+    background: #f5c6cb; /* rojo apagado */
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+/* Consejos */
+.consejos {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.consejos li {
+    background: #d0f4de; /* verde muy claro */
+    color: #2e7d32;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+/* Botones */
+.mi-boton {
+    background-color: #4CAF50; /* verde */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.pro-p { text-align: center; }
+button:hover { background: #5db360; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+form { max-width: 800px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+</style>
+<div class="resultado">
+  <h1>Resultados del Quiz</h1>
+  <p class="pro-p"><b>{{ mensaje }}</b></p>
+
+  <div class="barra">
+    <div class="barra-llena" style="width: {{ porcentaje|default(0, true) }}%;">{{ porcentaje|default(0, true) }}%</div>
+  </div>
+
+  <p>Puntaje: <b>{{ puntaje }}/{{ total }}</b></p>
+
+  {% if errores %}
+    <h3>Respuestas incorrectas:</h3>
+    <ul class="errores">
+      {% for e in errores %}
+        <li>{{ e.pregunta }}: <br> {{ e.correcta }}: <br> {{ e.justificacion }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+  {% endif %}
+
+  <h3>Consejos para mejorar tu impacto ambiental:</h3>
+  <ul class="consejos">
+    {% for c in consejos %}
+      <li> {{ c }}</li>
+    {% endfor %}
+  </ul>
+
+  <div class="botones">
+    <button class="mi-boton"><a href="{{ url_for('quiz') }}">Jugar de nuevo</a></button>
+    <button class="mi-boton"><a href="{{ url_for('salir') }}">Salir</a></button>
+  </div>
+</div>
+</body>
+</html>

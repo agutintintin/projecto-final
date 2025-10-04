@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GCambio - Minijuego</title>
+    <link rel="icon" href="static/img/icono1.png" type="image/png">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<style>
+    body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg,#e0f7fa,#d0f4de); margin:0; padding:20px; }
+    h1 { text-align: center; color: #0277bd; }
+    form { max-width: 800px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .pregunta { margin-bottom: 25px; }
+    .pregunta p { font-weight: bold; }
+    label { margin-right: 15px; }
+    .botones { text-align: center; margin-top: 20px; }
+
+</style>
+<body>
+  <h1>Minijuego: Verdadero o Falso</h1>
+  <form method="POST">
+    {% for p in preguntas %}
+      <div class="pregunta">
+        <p><b>{{ loop.index }}. {{ p.pregunta }}</b></p>
+        <label><input type="radio" name="p{{ loop.index0 }}" value="Verdadero" required> Verdadero</label>
+        <label><input type="radio" name="p{{ loop.index0 }}" value="Falso"> Falso</label>
+      </div>
+
+    {% endfor %}
+    <div class="botones">
+      <button class="mi-boton" type="submit">Enviar respuestas</button>
+    </div>
+
+  </form>
+</body>
+</html>

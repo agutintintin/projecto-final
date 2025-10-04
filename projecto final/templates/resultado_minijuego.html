@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GCambio - Resultado</title>
+    <link rel="icon" href="static/img/icono1.png" type="image/png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .resultado-container {
+            background-color: #ffffff;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .btn-volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-volver:hover {
+            background-color: #FF8C00;
+        }
+    </style>
+</head>
+<body>
+    <div class="resultado-container">
+        <h1>Resultados del Minijuego</h1>
+        <p>Puntaje: {{ puntaje }} / {{ total }}</p>
+
+        {% if errores %}
+        <h3>Respuestas incorrectas:</h3>
+        <ul>
+            {% for e in errores %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>¡Perfecto! Todas las respuestas correctas 🎉</p>
+        {% endif %}
+
+        <button class="mi-boton"><a href="{{ url_for('inicio') }}">Volver al inicio</a></button>
+    </div>
+</body>
+</html>

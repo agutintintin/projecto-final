@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GCambio - Vivencias y gente comprometida</title>
+<link rel="icon" href="static/img/icono1.png" type="image/png">
+<link rel="stylesheet" href="static/css/style.css">
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,#e0f7fa,#d0f4de);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 800px;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #0277bd;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #f0f8ff;
+    margin: 10px 0;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-align: left;
+    transition: all 0.2s ease;
+    opacity: 0;               /* empieza invisible */
+    transform: translateY(15px); /* empieza un poco abajo */
+    animation: liFadeIn 0.5s forwards; /* animación al cargar */
+}
+
+/* Animación fade-in para cada li */
+@keyframes liFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Si querés que al hacer hover tenga efecto adicional */
+li:hover {
+    background: #e1f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+<div class="contenedor">
+    <h1>Vivencias</h1>
+    <ul>
+        {% for v in vivencias %}
+            <li>{{ v.strip() }}</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <button class="mi-boton"><a href="/compromiso">Deja tu vivencia</a></button>
+        <button class="mi-boton"><a href="/">Volver al inicio</a></button>
+    </div>
+</div>
+</body>
+</html>

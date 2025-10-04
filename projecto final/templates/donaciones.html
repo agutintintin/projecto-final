@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GCambio - Donaciones</title> 
+<link rel="icon" href="static/img/icono1.png" type="image/png">
+<link rel="stylesheet" href="static/css/style.css">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #d0f4de);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .contenedor {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+  }
+  h1 {
+    color: #0277bd;
+    margin-bottom: 30px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+  }
+  button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  .volver {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #2196F3;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  .volver:hover {
+    background-color: #0b7dda;
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Apóyanos con una donación</h1>
+    <form method="POST" action="/procesar_donacion">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <input type="number" name="cantidad" placeholder="Cantidad a donar (USD)" min="1" required>
+    <h2>Pon los datos de tu tarjeta aqui</h2>
+      <input type="text" name="titular" placeholder="Nombre en la tarjeta" required>
+      <input type="number" name="numero" placeholder="Número de tarjeta" pattern="\d{16}" title="Debes ingresar 16 dígitos" required>
+      <input type="number" name="cvv" placeholder="CVV" pattern="\d{3}" title="Debes ingresar 3 dígitos" required>
+      <input type="text" name="expiracion" placeholder="MM/AA" pattern="\d{2}/\d{2}" title="Formato MM/AA" required>
+      <button type="submit">Donar</button>
+    </form>
+    <br>
+    <button class="mi-boton"><a href="/" class="btn">Volver al inicio </a></button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GCambio - Juego de Emojis</title>
+    <link rel="icon" href="static/img/icono1.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Adivina el problema ambiental</h1>
+        <div class="info">Pregunta {{ indice }} de {{ total }}</div>
+        <div id="emoji">{{ adivinanza.emojis }}</div>
+
+        <form method="POST">
+            {% for opcion in adivinanza.opciones %}
+                <button type="submit" name="respuesta" value="{{ opcion }}">{{ opcion }}</button><br>
+            {% endfor %}
+        </form>
+        <br>
+        <button><a href="{{ url_for('index') }}">salir</a></button>
+    </div>
+</body>
+</html>

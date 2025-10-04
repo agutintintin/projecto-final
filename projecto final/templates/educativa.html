@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GCambio - Sección Educativa</title>
+<link rel="icon" href="static/img/icono1.png" type="image/png">
+<link rel="stylesheet" href="static/css/style.css">
+<style>
+body { 
+    font-family: Arial, sans-serif; 
+    background: linear-gradient(135deg,#e0f7fa,#d0f4de); 
+    margin:0; 
+    padding:20px; 
+    display:flex; 
+    justify-content:center;
+}
+.contenedor { 
+    background:#fff; 
+    padding:30px; 
+    border-radius:15px; 
+    width:90%; 
+    max-width:800px; 
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+h1, h2 { 
+    text-align:center; 
+    color:#0277bd; 
+}
+p { 
+    margin:10px 0; 
+    text-align:justify; 
+}
+.actividad { 
+    background:#e8f5e9; 
+    padding:15px; 
+    margin:15px 0; 
+    border-radius:10px;
+}
+.actividad-bebes { 
+    background:#fce4ec; 
+    padding:15px; 
+    margin:15px 0; 
+    border-radius:10px; 
+    text-align:center;
+}
+.colores div { 
+    width:50px; 
+    height:50px; 
+    display:inline-block; 
+    margin:5px; 
+    border-radius:5px;
+}
+.emojis span { 
+    font-size:2rem; 
+    margin:5px;
+}
+.flash { 
+    padding:10px; 
+    border-radius:8px; 
+    margin:10px 0; 
+}
+.flash.success { background:#c8f3c8; }
+.flash.error { background:#f8c8c8; }
+</style>
+</head>
+<body>
+<div class="contenedor">
+<h1>Aprendamos sobre el Clima</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, msg in messages %}
+      <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% for q in preguntas_edu %}
+<div class="actividad">
+    <p><strong>{{q.pregunta}}</strong></p>
+    <form method="POST" action="/educativa/check_answer">
+        {% for op in q.opciones %}
+            <label><input type="radio" name="opcion" value="{{op}}" required> {{op}}</label>
+        {% endfor %}
+        <!-- Usamos loop.index0 como índice -->
+        <input type="hidden" name="pregunta_index" value="{{ loop.index0 }}">
+        <button class="mi-boton" type="submit">Responder</button>
+    </form>
+</div>
+{% endfor %}
+
+<div class="actividad-bebes">
+<h2>Para los más pequeñitos</h2>
+<p>Exploramos la naturaleza:</p>
+<div class="colores">
+    {% for color in colores_bebes %}
+        <div style="background:{{color}}"></div>
+    {% endfor %}
+</div>
+<div class="emojis">
+    {% for e in emojis_bebes %}
+        <span>{{e}}</span>
+    {% endfor %}
+</div>
+</div>
+
+<div class="mi-boton" style="text-align:center; margin-top:20px;">
+    <a href="/">Volver al inicio</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GCambio - Quiz</title>
+    <link rel="icon" href="static/img/icono1.png" type="image/png">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<style>
+  /* Contenedor de resultados */
+body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg,#e0f7fa,#d0f4de); margin:0; padding:20px; }
+h1 { text-align: center; color: #0277bd; }
+form { max-width: 800px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.mi-boton {
+    background-color: #4CAF50; /* verde */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center
+}
+
+.pregunta { margin-bottom: 25px; }
+.pregunta p { font-weight: bold; }
+
+.button:hover { background: #5db360; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+</style>
+<body>
+  <h1>Pregunta {{ indice }} de {{ total }}</h1>
+  <form method="POST">
+    <div class="pregunta">
+      <p><b>{{ pregunta.pregunta }}</b></p>
+      {% for op in pregunta.opciones %}
+        <label>
+          <input type="radio" name="respuesta" value="{{ op }}" required> {{ op }}
+        </label>
+      {% endfor %}
+    </div>
+
+    <div class="botones">
+      <button class="mi-boton"type="submit" name="accion" value="siguiente">Siguiente</button>
+    </div>
+
+    
+  </form>
+</body>
+</html>

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #e0f7fa, #d0f4de); /* azul y verde claro */
+    color: #2c3e50;
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, #81d4fa, #a5d6a7); /* azul y verde claros */
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    font-weight: 600;
+    color: #0277bd; /* azul intenso */
+    font-size: 3rem;
+}
+
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Botón principal */
+.main__link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-radius: 30px;
+    background: #4fc3f7; /* azul claro */
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.main__link:hover {
+    transform: translateY(-3px);
+    background: #81d4fa; /* azul más suave al hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Preguntas */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: #d0f4de; /* verde muy claro */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button:hover { background: #5db360; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* Resultado */
+.result {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2rem;
+    background: #e0f7fa; /* azul muy claro */
+    border-radius: 15px;
+}
+
+.result span {
+    font-weight: 600;
+    color: #2e7d32; /* verde intenso */
+}
+
+.mi-boton {
+  background-color: #4CAF50; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  text-align: center; /* Texto centrado */
+  text-decoration: none; /* Sin decoración de texto */
+  display: inline-block; /* Tipo de visualización */
+  font-size: 16px; /* Tamaño de la fuente */
+  margin: 4px 2px; /* Margen */
+  cursor: pointer; /* Cursor que indica que es clicable */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.contenedor {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+  }
